@@ -62,15 +62,24 @@ export const fetchCommentDetail = ()=>{
 export const fetchSerchQueryData = (query="")=>{
     return async(dispatch)=>{
             dispatch(onChangeInput(query));
-            dispatch(fetchSearchRequest());
-            // try {
-            //     const queryData = await fetchSerchQueryFromApi('/search',query);
-            //     dispatch(fetchSearchSuccess(queryData.data))
+            if (query.length > 0) {
+                dispatch(fetchSearchRequest());
+            try {
+                const queryData = await fetchSerchQueryFromApi('/search',query);
+                const result = queryData.data;
 
-            // } catch (error) {
-            //     const err = error.message;
-            //     dispatch(fetchSearchFailure((err)))
-            // }
+                if (result.hits) {
+                dispatch(fetchSearchSuccess(result.hits))
+                    
+                }
+
+            } catch (error) {
+                const err = error.message;
+                dispatch(fetchSearchFailure((err)))
+            }
+            }
+            
+
             // fetch("https://jsonplaceholder.typicode.com/users")
             // .then( response=>{
             //         const user = response.data;

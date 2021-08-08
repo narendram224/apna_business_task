@@ -1,6 +1,6 @@
 import React from 'react'
-
-const commetCard = () => {
+import './CommentCard.css'
+const CommentCard = () => {
     return (
         <div className="comment-container theme--light">
         <div className="comments" >
@@ -14,7 +14,7 @@ const commetCard = () => {
           <div  >
             <div  className="card v-card v-sheet theme--light elevation-2">
               <div  className="header">
-                <div  className="v-avatar avatar" style="height: 50px; width: 50px;"><img  src=""  /></div>
+                <div  className="v-avatar avatar" style={{height: "50px", width: "50px"}}><img  src=""  /></div>
                 <span  className="displayName title">John Doe</span> <span  className="displayName caption">2 days ago</span></div>
              
               <div  className="wrapper comment">
@@ -25,7 +25,7 @@ const commetCard = () => {
                
                
               </div>
-              <div  className="v-dialog__container" style="display: block;"></div>
+              <div  className="v-dialog__container" style={{display: 'block'}}></div>
             </div>
            
             <div  className="answers">
@@ -35,7 +35,7 @@ const commetCard = () => {
           <div  >
             <div  className="card v-card v-sheet theme--light elevation-2">
               <div  className="header">
-                <div  className="v-avatar avatar" style="height: 50px; width: 50px;"><img  src=""  /></div>
+                <div  className="v-avatar avatar"style={{height: "50px", width: "50px"}} ><img  src=""  /></div>
                 <span  className="displayName title">Albert Arja</span> <span  className="displayName caption">15 days ago</span></div>
              
               <div  className="wrapper comment">
@@ -47,7 +47,7 @@ const commetCard = () => {
                
                
               </div>
-              <div  className="v-dialog__container" style="display: block;"></div>
+              <div  className="v-dialog__container" style={{display: 'block'}}></div>
             </div>
            
             <div  className="answers">
@@ -57,7 +57,7 @@ const commetCard = () => {
           <div  >
             <div  className="card v-card v-sheet theme--light elevation-2">
               <div  className="head er">
-                <div  className="v-avatar avatar" style="height: 50px; width: 50px;"><img  src="" /></div>
+                <div  className="v-avatar avatar" style={{height: "50px", width: "50px"}}><img  src="" /></div>
                 <span  className="displayName title">Robert</span> <span  className="displayName caption">2 months ago</span></div>
              
               <div  className="wrapper comment">
@@ -69,7 +69,7 @@ const commetCard = () => {
                
                
               </div>
-              <div  className="v-dialog__container" style="display: block;"></div>
+              <div  className="v-dialog__container" style={{display: 'block'}}></div>
             </div>
            
             <div  className="answers">
@@ -81,4 +81,4 @@ const commetCard = () => {
     )  
 }
 
-export default commetCard
+export default CommentCard

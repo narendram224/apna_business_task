@@ -3,7 +3,7 @@ import { FETCH_SEARCH_FAILURE, FETCH_SEARCH_REQUEST, FETCH_SEARCH_SUCCESS , FETC
 const initialState ={
     loading:{query:false,comment:false},
     searchQuery:"",
-    serchResult:[],
+    searchResult:[],
     commentsDetails:[],
     error:{query:'',comment:''}
 }
@@ -29,16 +29,17 @@ const SearchReducer = produce((draft=initialState, action) => {
 
             return draft
         case FETCH_SEARCH_SUCCESS:
-            draft.loading.query=true;
+            draft.loading.query=false;
             // searchQuery=
             draft.searchResult=action.payload;
 
         return draft;
 
          case FETCH_SEARCH_FAILURE:
-            draft.loading.query=true;
+            draft.loading.query=false;
+            console.log("erorr",action.payload);
             draft.error.query=action.payload;
-
+            draft.searchResult=[];
             return draft
         case FETCH_COMMENT_REQUEST:
             draft.loading.comment=true;

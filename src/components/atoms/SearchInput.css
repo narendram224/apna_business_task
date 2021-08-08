@@ -1,12 +1,13 @@
 .search_input{
     /* background-color: orchid; */
-    display: flex;
-    width: 50%;
     margin-left: 3rem;
-}
-
-.input_container{
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.input_container{
+    width: 50%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -23,6 +24,8 @@
     letter-spacing: 2px;
     border: none;
     border-radius: 5px;
+    font-family: var(--font);
+
     /* background: linear-gradient(to right, #FFFFFF 0%,#464747 #F9F9F9 100%); */
     background-color:#f9f9f9;
     /* transition: width 0.4s ease; */
@@ -36,6 +39,8 @@
   }
   input[type=text]:focus{
     border: 1px solid var(--primary-green);
+    font-family: var(--font);
+
 
 
     }

@@ -6,6 +6,9 @@
     align-items: center;
     height: 90px;
     line-height: 90px;
+    position: fixed;
+    top: 0;
+    z-index: 5;
 
 }
 .navbar_shadow{

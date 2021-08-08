@@ -5,6 +5,7 @@
   --bg_color:#ffffff;
     --shadow:rgb(43 83 135 / 8%) 0px 3px 8px 0px;
 --nav_bg_color:rgb(255, 255, 255);
+--font: 'Lato', sans-serif;
 }
 
 *{
@@ -12,6 +13,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Lato', sans-serif !important;
 }
 body {
   margin: 0;
