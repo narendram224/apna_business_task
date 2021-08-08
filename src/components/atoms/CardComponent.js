@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const CardComponent = ({children}) => {
+const CardComponent = ({children,onClick}) => {
+
     return (
-        <CardWrapper>
+        <CardWrapper onClick={onClick}>
             {children}
         </CardWrapper>
     )

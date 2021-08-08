@@ -6,8 +6,11 @@ import ListContent from '../components/molecules/ListContent'
 import CardComponent from '../components/atoms/CardComponent'
 import { useSelector } from 'react-redux'
 import { isoDateConverter } from '../Helper/IsoDateConverter'
+import { useHistory } from 'react-router-dom';
 
 const HomePage = () => {
+    const history = useHistory();
+
     const initialstate = useSelector((state)=>state.search)
     const searchedResult =initialstate.searchResult;
     const loading =initialstate.loading.query;
@@ -16,6 +19,9 @@ console.log("the searchg",searchedResult);
 console.log("the loading",loading);
 console.log("the error",error);
 
+const navigateToDetail = (objectId)=>{
+        history.push(`/detail/${objectId}`);
+}   
 
 
 
@@ -28,7 +34,7 @@ console.log("the error",error);
                     {!loading&&searchedResult.length>0?
                     searchedResult.map((sItem)=>{
                         return (
-                    <CardComponent key={sItem['objectID']}>
+                    <CardComponent key={sItem['objectID']} onClick={()=>navigateToDetail(sItem['objectID'])}  >
                              <ListContent title={sItem['title']} subtitle={isoDateConverter(sItem['created_at'])}  />
                      </CardComponent>
                         )

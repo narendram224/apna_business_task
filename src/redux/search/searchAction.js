@@ -1,5 +1,6 @@
 import { FETCH_SEARCH_FAILURE, FETCH_SEARCH_REQUEST, FETCH_SEARCH_SUCCESS , FETCH_COMMENT_REQUEST, FETCH_COMMENT_SUCCESS, FETCH_COMMENT_FAILURE ,ON_CHANGE_INPUT} from "./searchType"
 import { fetchSerchQueryFromApi } from "../../service/searchApi"
+import { fetchCommentFromApi } from "../../service/commentApi"
 
 
 const fetchSearchRequest = ()=>{
@@ -43,19 +44,35 @@ const onChangeInput =(value)=>{
     return {type:ON_CHANGE_INPUT, payload:value}
 }
 
-export const fetchCommentDetail = ()=>{
-    return (dispatch)=>{
+export const fetchCommentDetail = (objectId)=>{
+    console.log("id",objectId);
+    return async(dispatch)=>{
+            // dispatch(fetchCommentRequest());
+            // fetch("https://hn.algolia.com/api/v1/items/5218288")
+            // .then((resp)=>{resp.json()})
+            // .then( response=>{
+            //         const commentDetails = response;
+            //         dispatch(fetchCommentSuccess(commentDetails))
+            // })
+            // .catch((err)=>{
+            //     const error = err.message;
+            //     dispatch(fetchCommentFailure((error)))
+            // })
+
             dispatch(fetchCommentRequest());
-            fetch("https://hn.algolia.com/api/v1/items/5218288")
-            .then((resp)=>{resp.json()})
-            .then( response=>{
-                    const commentDetails = response;
-                    dispatch(fetchCommentSuccess(commentDetails))
-            })
-            .catch((err)=>{
-                const error = err.message;
-                dispatch(fetchCommentFailure((error)))
-            })
+            try {
+                const queryData = await fetchCommentFromApi(`/items/${objectId}`);
+                const result = queryData.data;
+
+                if (result.children) {
+                dispatch(fetchCommentSuccess(result.children))
+                    
+                }
+
+            } catch (error) {
+                const err = error.message;
+                dispatch(fetchCommentFailure((err)))
+            }
     }
 }
 
