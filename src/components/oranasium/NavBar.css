@@ -1,0 +1,26 @@
+.navbar{
+    background-color: var(--nav_bg_color);
+    box-shadow: var(--shadow);
+        display: flex;
+    width: 100%;
+    align-items: center;
+    height: 90px;
+    line-height: 90px;
+
+}
+.navbar_shadow{
+    position: fixed!important;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    /* -webkit-box-shadow: 0 -2px 6px #333; */
+    box-shadow: 0 -2px 6px #333;
+}
+.nav_brand_img{
+    
+    width: 80px;
+    margin-left: 20px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+
+}

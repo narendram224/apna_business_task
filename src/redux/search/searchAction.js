@@ -1,5 +1,4 @@
-import { FETCH_SEARCH_FAILURE, FETCH_SEARCH_REQUEST, FETCH_SEARCH_SUCCESS , FETCH_COMMENT_REQUEST, FETCH_COMMENT_SUCCESS, FETCH_COMMENT_FAILURE } from "./searchType"
-import Axios from "axios"
+import { FETCH_SEARCH_FAILURE, FETCH_SEARCH_REQUEST, FETCH_SEARCH_SUCCESS , FETCH_COMMENT_REQUEST, FETCH_COMMENT_SUCCESS, FETCH_COMMENT_FAILURE ,ON_CHANGE_INPUT} from "./searchType"
 import { fetchSerchQueryFromApi } from "../../service/searchApi"
 
 
@@ -40,6 +39,9 @@ const fetchSearchRequest = ()=>{
         payload:error
     }
 }
+const onChangeInput =(value)=>{
+    return {type:ON_CHANGE_INPUT, payload:value}
+}
 
 export const fetchCommentDetail = ()=>{
     return (dispatch)=>{
@@ -57,17 +59,18 @@ export const fetchCommentDetail = ()=>{
     }
 }
 
-export const fetchSerchQueryData = (query)=>{
+export const fetchSerchQueryData = (query="")=>{
     return async(dispatch)=>{
+            dispatch(onChangeInput(query));
             dispatch(fetchSearchRequest());
-            try {
-                const queryData = await fetchSerchQueryFromApi('/search',query);
-                dispatch(fetchSearchSuccess(queryData.data))
+            // try {
+            //     const queryData = await fetchSerchQueryFromApi('/search',query);
+            //     dispatch(fetchSearchSuccess(queryData.data))
 
-            } catch (error) {
-                const err = error.message;
-                dispatch(fetchSearchFailure((err)))
-            }
+            // } catch (error) {
+            //     const err = error.message;
+            //     dispatch(fetchSearchFailure((err)))
+            // }
             // fetch("https://jsonplaceholder.typicode.com/users")
             // .then( response=>{
             //         const user = response.data;
