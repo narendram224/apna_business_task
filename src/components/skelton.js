@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-// import './Skelton.css'
 
 const Skelton = ({profile}) => {
     return (

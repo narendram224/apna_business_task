@@ -11,6 +11,5 @@ if (month < 10) {
   month = '0' + month;
 }
 const converteddate =`${dt}-${month}-${year}`
-console.log(year+'-' + month + '-'+dt);
 return converteddate;
 }

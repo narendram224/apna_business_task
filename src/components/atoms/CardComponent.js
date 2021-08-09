@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const CardComponent = ({children,onClick}) => {
 
     return (
-        <CardWrapper onClick={onClick}>
+        <CardWrapper onClick={()=>onClick&&onClick()}>
             {children}
         </CardWrapper>
     )

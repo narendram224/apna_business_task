@@ -1,84 +1,61 @@
 import React from 'react'
+import styled from 'styled-components'
+import Title from './atoms/Title'
 import './CommentCard.css'
-const CommentCard = () => {
-    return (
-        <div className="comment-container theme--light">
-        <div className="comments" >
-          <div className="card v-card v-sheet theme--light elevation-2" ><span className="headline" >Leave a comment</span>
-            <div className="sign-in-wrapper" >
-              <p className="caption disclaimer" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi gravida lacinia faucibus. Sed tincidunt ex sem, non gravida odio fermentum sit amet.</p>
-              <p className="error-message" ></p>
-            </div>
-           
-          </div>
-          <div  >
-            <div  className="card v-card v-sheet theme--light elevation-2">
-              <div  className="header">
-                <div  className="v-avatar avatar" style={{height: "50px", width: "50px"}}><img  src=""  /></div>
-                <span  className="displayName title">John Doe</span> <span  className="displayName caption">2 days ago</span></div>
-             
-              <div  className="wrapper comment">
-                <p>Fusce sodales magna id porta egestas. Nulla massa est, hendrerit nec auctor vitae, porta ut est.</p>
-              </div>
-              <div  className="actions">
-               
-               
-               
-              </div>
-              <div  className="v-dialog__container" style={{display: 'block'}}></div>
-            </div>
-           
-            <div  className="answers">
-             
-            </div>
-          </div>
-          <div  >
-            <div  className="card v-card v-sheet theme--light elevation-2">
-              <div  className="header">
-                <div  className="v-avatar avatar"style={{height: "50px", width: "50px"}} ><img  src=""  /></div>
-                <span  className="displayName title">Albert Arja</span> <span  className="displayName caption">15 days ago</span></div>
-             
-              <div  className="wrapper comment">
-                <p>Fusce sodales magna id porta egestas. Nulla massa est, hendrerit nec auctor vitae, porta ut est.</p>
-                <p>Thanks You.</p>
-              </div>
-              <div  className="actions">
-               
-               
-               
-              </div>
-              <div  className="v-dialog__container" style={{display: 'block'}}></div>
-            </div>
-           
-            <div  className="answers">
-             
-            </div>
-          </div>
-          <div  >
-            <div  className="card v-card v-sheet theme--light elevation-2">
-              <div  className="head er">
-                <div  className="v-avatar avatar" style={{height: "50px", width: "50px"}}><img  src="" /></div>
-                <span  className="displayName title">Robert</span> <span  className="displayName caption">2 months ago</span></div>
-             
-              <div  className="wrapper comment">
-                <p>Fusce sodales magna id porta egestas. Nulla massa est, hendrerit nec auctor vitae, porta ut est. </p>
-                <p>Fusce sodales magna id porta egestas. Nulla massa est, hendrerit nec auctor vitae, porta ut est.</p>
-              </div>
-              <div  className="actions">
-               
-               
-               
-              </div>
-              <div  className="v-dialog__container" style={{display: 'block'}}></div>
-            </div>
-           
-            <div  className="answers">
-             
-            </div>
-          </div>
-        </div>
+
+
+const CommentCard = ({ title, body, date }) => {
+  // function take arug and return html for string 
+  function createMarkup() {
+    return {
+      __html: body
+    };
+  };
+  return (
+    <CommentCardStyled >
+      <img src="https://uifaces.co/our-content/donated/6f6p85he.jpg" alt="" />
+      <div className="comment_header">
+        <Title text={title ? title : 'N/A'} />
+        <span>{date}</span>
+        <div className="comment_body" dangerouslySetInnerHTML={createMarkup()} />
       </div>
-    )  
+
+
+    </CommentCardStyled>
+  )
 }
+
+const CommentCardStyled = styled.div`
+    background-color: #f8f9fa!important;
+    display: flex;
+    padding: 1rem;
+    position: relative;
+    margin-top: 3rem;
+ 
+      img{
+        width: 2.125rem;
+    height: 2.125rem;
+    font-size: 1rem;
+    border-radius: 50%;
+      }
+      span{
+        margin-left: 20px;
+            font-weight: 400;
+            font-size: 12px !important;
+            color: var(--primary-green);
+            font-family: var(--font);
+      }
+      .comment_header{
+        margin-left: 1.5rem;
+        font-family: var(--font);
+
+      }
+      .comment_body{
+        margin-top: 1rem;
+       
+      }
+
+
+`
 
 export default CommentCard
