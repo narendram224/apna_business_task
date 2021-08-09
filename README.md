@@ -1,10 +1,23 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Live Demo](https://apna-business-task.vercel.app/).
 
 ## Available Scripts
 
-In the project directory, you can run:
+Tools and technologies
+
+| Tools | description |
+| --- | --- |
+| React | makiing Ui |
+| Redux | state management |
+| Redux-thunk | api call in the redux thunk|
+| Redux-logger | loging the action into console |
+| styled-component | css in js library |
+| immer | data structure library for state mutation|
+| react-router-dom | handling the routing in react|
+| react-ionicons | for icons |
+
+
 
 ### `npm start`
 
