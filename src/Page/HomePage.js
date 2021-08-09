@@ -1,7 +1,7 @@
 import React from "react";
 import MainLayout from "../styled/MainLayout";
 import NavBar from "../components/organism/NavBar";
-import Skelton from "../components/Skelton";
+import SkeltonComp from "../components/atoms/Skelton";
 import ListContent from "../components/molecules/ListContent";
 import CardComponent from "../components/atoms/CardComponent";
 import { useSelector } from "react-redux";
@@ -24,7 +24,7 @@ const HomePage = () => {
     <div>
       <NavBar />
       <MainLayout>
-        {loading && <Skelton profile={false} />}
+        {loading && <SkeltonComp profile={false} />}
 
         {!loading && searchedResult.length > 0
           ? searchedResult.map((sItem) => {

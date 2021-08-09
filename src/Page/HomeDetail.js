@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import CardComponent from "../components/atoms/CardComponent";
-import CommentCard from "../components/CommentCard";
+import CommentCard from "../components/molecules/CommentCard";
 import ListContent from "../components/molecules/ListContent";
-import Skelton from "../components/Skelton";
+import SkeltonComp from "../components/atoms/Skelton";
 import { isoDateConverter } from "../Helper/IsoDateConverter";
 import { fetchCommentDetail } from "../redux/search/searchAction";
 
@@ -25,11 +25,11 @@ const HomeDetail = () => {
     <HomeDetailWrapper>
       {loading && (
         <SkeltonWrapper>
-          <Skelton />
-          <Skelton />
-          <Skelton />
-          <Skelton />
-          <Skelton />
+          <SkeltonComp />
+          <SkeltonComp />
+          <SkeltonComp />
+          <SkeltonComp />
+          <SkeltonComp />
         </SkeltonWrapper>
       )}
       {!loading && error.length === 0 && (
@@ -76,7 +76,7 @@ const ReplyWrapper = styled.div`
   padding-bottom: 0.3rem;
   font-size: 1.4rem;
   font-weight: 700;
-  
+
 `;
 
 const HomeDetailWrapper = styled.main`

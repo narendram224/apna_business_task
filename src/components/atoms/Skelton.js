@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Skelton = ({profile}) => {
+const SkeltonComp = ({profile}) => {
     return (
   <SkeltonWrapper>
     {profile&&<div className="comment_circle load-pulse"></div>}
@@ -78,4 +78,4 @@ const SkeltonWrapper = styled.div`
 
 `
 
-export default Skelton
+export default SkeltonComp

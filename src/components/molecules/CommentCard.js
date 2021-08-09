@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Title from './atoms/Title'
+import Title from '../atoms/Title'
 import './CommentCard.css'
 
 
